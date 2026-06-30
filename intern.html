@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ICONIC HUB - Premium Internship Program</title>
+    <link rel="icon" href="Iconi Hub Logo.png" type="image/png">
+    <style>
+        /* CSS styling for a High-Rich UI */
+        :root {
+            --primary: black;
+            --secondary: #8b5cf6;
+            --dark: #0f172a;
+            --card-bg: rgba(30, 41, 59, 0.7);
+            --text-light: #f8fafc;
+            --text-muted: #94a3b8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--dark);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 5%;
+            background: #fff;
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.8rem;
+            font-weight: 800;
+            text-decoration: none;
+        }
+
+        .logo img {
+            height: 1.2em; 
+            width: auto;
+            object-fit: contain;
+        }
+
+        .logo-text {
+           
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+           
+        }
+
+        .btn-apply {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .btn-apply:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(99, 102, 241, 0.4);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 8rem 5% 4rem;
+            text-align: center;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: radial-gradient(circle at top, rgba(99, 102, 241, 0.15) 0%, var(--dark) 70%);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+
+        .video-container {
+            width: 100%;
+            max-width: 900px;
+            margin: 2rem auto;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255,255,255,0.1);
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Program Details Grid */
+        .details-section {
+            padding: 5rem 5%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 16px;
+            border: 1px solid rgba(255,255,255,0.05);
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+        }
+
+        .card h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 5rem 5%;
+            background: rgba(15, 23, 42, 0.5);
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .testimonial-card {
+            background: var(--dark);
+            padding: 2rem;
+            border-radius: 12px;
+            border-left: 4px solid var(--secondary);
+        }
+
+        .quote {
+            font-style: italic;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+
+        .author {
+            font-weight: bold;
+            color: white;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 6rem 5%;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(99,102,241,0.1), rgba(139,92,246,0.1));
+        }
+
+        .cta-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .terms-box {
+            background: rgba(0,0,0,0.3);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            color: var(--text-muted);
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+      <div class="logo">
+            <img src="Iconi Hub Logo.png" alt="Iconic Hub Logo">
+            <span class="logo-text" >ICONIC HUB</span>
+        </div>
+        <a href="#apply" class="btn-apply">Apply Now</a>
+    </nav>
+
+    <section class="hero">
+        <h1 class="fade-in">Build Real Products.<br>Not Just Projects.</h1>
+        <p class="fade-in">Join our elite remote team. Apply your domain knowledge to live SaaS solutions, handle real client requirements, and accelerate your career in just 45 days.</p>
+        
+        <div class="video-container fade-in">
+            <iframe src="https://drive.google.com/file/d/1oTGioeXUUUVKg7xdRH1mcD3SbEWM4W0P/preview?autoplay=1&mute=1" allow="autoplay" allowfullscreen></iframe>
+        </div>
+    </section>
+
+    <section class="details-section">
+        <h2 class="section-title fade-in">What Makes This Different?</h2>
+        <div class="grid-container">
+            <div class="card fade-in">
+                <h3>💼 Real Product Integration</h3>
+                <p>You won't be building sandbox projects. You will be working alongside our core team on live SaaS products and generating insights based on actual client requirements.</p>
+            </div>
+            <div class="card fade-in">
+                <h3>🌍 100% Remote Flexibility</h3>
+                <p>Work from anywhere. We value output and code quality over physical presence. Integrate seamlessly with our workflow via our internal tools.</p>
+            </div>
+            <div class="card fade-in">
+                <h3>🧠 50% Domain Knowledge Req.</h3>
+                <p>We expect you to bring foundational domain knowledge (50%) to the table. Our experts will mentor you through the remaining 50% to execute high-level technical tasks.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <h2 class="section-title fade-in">Hear From Our Past Interns</h2>
+        <div class="testimonial-grid">
+            <div class="testimonial-card fade-in">
+                <p class="quote">"The internship was highly informative and helped me develop practical skills in LMS development, teamwork, and problem-solving. The guidance from mentors and exposure to real project workflows made it a rewarding learning experience."</p>
+                <p class="author">— Angelin Beaulah D.,<br>AI team</p>
+            </div>
+            <div class="testimonial-card fade-in">
+                <p class="quote">"Internship experience was good.Got a chance to work on real time projects and it will be helpful for freshers who wants to know about how project teams work."</p>
+                <p class="author">— Lavanya R., <br>Data Analyst</p>
+            </div>
+            <div class="testimonial-card fade-in">
+                <p class="quote">"The workflow of the intern was good . We were spilted as teams and team leader is assigned to fetch the work progress. This is a good idea . "</p>
+                <p class="author">— Agalya S., <br>Data Analyst</p>
+            </div>
+            <div class="testimonial-card fade-in">
+                <p class="quote">"This internship offered valuable real-time IT experience building 'TutorGenie' through backend engineering and AI development. Our immediate internal team was good, highly capable, and fully collaborative. However, a major area for improvement is cross-team cooperation, as we faced severe communication bottlenecks from external departments."</p>
+                <p class="author">—Keshoare Kumar CK., <br>Backend Engineer & AI Team</p>
+            </div>
+            <div class="testimonial-card fade-in">
+                <p class="quote">"The candidate demonstrated a good understanding of data analytics concepts, including SQL, Excel, and data visualization tools. They were able to explain their projects clearly and showed strong analytical and problem-solving skills. Communication was effective, and the candidate displayed enthusiasm for learning and growth. Overall, they are a good fit for the Data Analytics role."</p>
+                <p class="author">— Gokula krishnan R.,<br>Data Analyst</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="apply" class="cta-section">
+        <div class="cta-content">
+            <h2 class="fade-in">Ready to Accelerate Your Career?</h2>
+            
+            <div class="terms-box fade-in">
+                <strong>Program Terms:</strong> This is a highly intensive, 45-day remote internship. Please note that this is an unpaid (zero stipend) opportunity focused purely on extreme skill acquisition, real-world SaaS exposure, and premium knowledge transfer. Upon successful completion, you will receive an official certification and confirmation letter.
+            </div>
+
+            <p class="fade-in" style="margin-bottom: 2rem;">If you are ready to commit to real work and upgrade your skills, click below to confirm your understanding and submit your application.</p>
+            
+            <a target="_blank" class="btn-apply fade-in" style="font-size: 1.2rem; padding: 1rem 3rem;">
+                I Agree to the Terms – Proceed to Application
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 ICONIC HUB. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Simple Intersection Observer for scroll animations (fade-in)
+        document.addEventListener("DOMContentLoaded", function() {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            const fadeElements = document.querySelectorAll('.fade-in');
+            fadeElements.forEach(el => observer.observe(el));
+        });
+    </script>
+</body>
+</html>
